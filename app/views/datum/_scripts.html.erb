@@ -1,0 +1,67 @@
+<script type="text/javascript">
+$(document).ready(function(){
+
+  // Event Binding to the inputs
+  $("input").live("blur", function() {
+    if (this.previous_value == $(this).val())
+      return;
+    if ($(this).val() == "")
+      return;
+    upload_input_line(this);
+    process_page();
+    this.previous_value = $(this).val();
+  });
+
+  append_input_line();
+
+  function upload_input_line(node){
+    $(node).css("background-color","#FF0");
+    $.ajax({
+      type:"POST",
+      url:"<%= datum_update_path %>",
+      data:{
+        dataset_id:$(node.parentNode.parentNode).attr("id"),
+        datum_id:$(node.parentNode).attr("id"),
+        datum_type:$(node).attr("class"),
+        datum_value:$(node).val()
+      },
+      success:function(response,status){
+        $(node).css("background-color","#0F0");
+        $(node.parentNode).attr("id",response);
+      },
+      error:function(){
+        $(node).css("background-color","#F00");
+      }
+    });
+  }
+
+  function append_input_line(){
+    $("div.input_line_container").append(render_new_line());
+
+  }
+
+  function render_new_line(){
+    string = '<div class="input_line" >';
+    string += '<input class="pres" name="#" placeholder="Pressure" type="text" />'
+    string += '<input class="volt" name="#" placeholder="Voltage" type="text" />'
+    string += '<input class="amps" name="#" placeholder="Amperage" type="text" />'
+    string += '</div>'
+    return string;
+  }
+
+  function process_page(){
+    if(last_line_not_empty())
+      append_input_line();
+  }
+
+  function last_line_not_empty(){
+    return $("div.input_line").last().children('input').is( function(i) {
+      var input_box = $("div.input_line").last().children('input')[i];
+      if($(input_box).val() != "")
+        return true;
+      return false;
+    });
+  }
+
+});
+</script>

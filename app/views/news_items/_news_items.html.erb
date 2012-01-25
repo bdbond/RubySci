@@ -1,0 +1,7 @@
+<div class="news_items">
+  <% if @news_items.empty? %>
+  There are no news.
+  <% else %>
+  <%= render partial:'news_item', collection:@news_items %>
+  <% end %>
+</div>

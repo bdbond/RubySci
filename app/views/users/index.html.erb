@@ -1,0 +1,7 @@
+
+
+<% @users.each do |u| %>
+<%= link_to u.name+" <"+u.email+">",edit_user_path(u.id) %><br />
+<% end %>
+<br />
+<%= link_to "Add new user",new_user_path %>

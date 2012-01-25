@@ -1,0 +1,12 @@
+<%= render 'scripts' %>
+
+
+<div id="<%= params[:id] %>" class="input_line_container">
+<% @data.each do |d| %>
+<div class="input_line" id="<%= d.id %>">
+<input class="pres" name="#" placeholder="Pressure" type="text" value="<%= d.pressure %>" style="background-color:#DDD"/>
+<input class="volt" name="#" placeholder="Voltage" type="text" value="<%= d.voltage %>" style="background-color:#DDD"/>
+<input class="amps" name="#" placeholder="Amperage" type="text" value="<%= d.amperage %>" style="background-color:#DDD" />
+</div>
+<% end %>
+</div>
