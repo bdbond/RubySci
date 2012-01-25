@@ -9,7 +9,7 @@ class NewsItemsController < ApplicationController
 
   def create
     @news_item = NewsItem.new(params[:news_item])
-    @news_item.user_id = 1
+    @news_item.user_id = session[:user_id]
     if @news_item.save
       redirect_to "/", notice: "Success!"
     else
