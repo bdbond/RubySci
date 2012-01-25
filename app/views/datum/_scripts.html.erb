@@ -26,11 +26,11 @@ $(document).ready(function(){
         datum_value:$(node).val()
       },
       success:function(response,status){
-        $(node).css("background-color","#0F0");
+        $(node).css("background-color","#9F9");
         $(node.parentNode).attr("id",response);
       },
       error:function(){
-        $(node).css("background-color","#F00");
+        $(node).css("background-color","#F99");
       }
     });
   }

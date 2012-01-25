@@ -2,6 +2,6 @@
   <% if @news_items.empty? %>
   There are no news.
   <% else %>
-  <%= render partial:'news_item', collection:@news_items %>
+  <%= render partial:'news_item', collection:@news_items.reverse %>
   <% end %>
 </div>
