@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    if @user = User.create(params[:user])
+    @user = User.new(params[:user])
+    if @user.save
       redirect_to users_path, notice:"Success"
     else
       render action:"new", error:"Fail"

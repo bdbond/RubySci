@@ -1,8 +1,5 @@
-<div class="span-8 push-8">
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
-<% if flash[:error] %>
-  <p><%= flash[:error] %></p>
+<div class="span-8 push-6">
+<% flash.each do |key,msg| %>
+<%= key.to_s.capitalize + ": " + msg.to_s %>
 <% end %>
 </div>

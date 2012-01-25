@@ -1,4 +1,9 @@
+
+
 <div class="span-5 colborder">
+
+<% if current_user %>
+
   <div class="group_links">
     <b>General</b><br />
     <%= link_to "Home (News)","/" %><br />
@@ -14,4 +19,8 @@
     <%= link_to "Manage users", users_path %><br />
     <%= link_to "Add news item","news_items/new" %>
   </div>
+<% else %>
+Please log in.
+<% end %>
+  
 </div>

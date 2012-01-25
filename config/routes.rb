@@ -1,4 +1,10 @@
 RubySci::Application.routes.draw do
+  post "sessions/create"
+
+  get "sessions/destroy", as:'logout'
+
+  get "sessions/new", as: 'login'
+
   get "users/new"
 
   post "datasets/datum/update" => "datum#update", :as => 'datum_update'

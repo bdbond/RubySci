@@ -11,8 +11,12 @@
 <%= f.email_field :email %>
 </div>
 <div>
-<%= f.label "Password" %>
-<%= f.password_field :password_digest %>
+<%= f.label :password %>
+<%= f.password_field :password %>
+</div>
+<div>
+<%= f.label :password_confirmation %>
+<%= f.password_field :password_confirmation %>
 </div>
 <div>
 <%= f.submit %>
