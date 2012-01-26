@@ -1,8 +1,35 @@
+<script type="text/javascript">
+$(document).ready(function(){
+
+  update_name();
+
+  function update_name(){
+    var name = "";
+    name += $("#dataset_mat_p").val() + " ";
+    name += $("#dataset_geo_p").val() + " ";
+    name += "PN" + " ";
+    name += $("#dataset_mat_n").val() + " ";
+    name += $("#dataset_geo_n").val();
+    $("#dataset_name").val(name);
+  }
+
+  $("select").bind("change",update_name);
+
+});
+</script>
+
 Please select the materials and geometries of the lab setup.
 <div id="1" class="input_line_container">
 <%= form_for @dataset do |f| %>
+  <div class="lab_setup">
+  <%= f.select :mat_p, options_materials.html_safe %>
+  <%= f.select :geo_p, options_geometries.html_safe %>
+  PN
+  <%= f.select :mat_n, options_materials.html_safe %>
+  <%= f.select :geo_n, options_geometries.html_safe %>
+  </div>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, size:'50'%>
   <%= f.submit %>
 <% end %>
 </div>
