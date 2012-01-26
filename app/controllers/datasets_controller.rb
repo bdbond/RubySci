@@ -7,6 +7,10 @@ class DatasetsController < ApplicationController
     @datasets = Dataset.all
   end
 
+  def index_of_interest
+    @datasets = Dataset.where("marked_of_interest = ?",true)
+  end
+
   def create
     if @dataset = Dataset.create(params[:dataset])
       redirect_to edit_datum_path(@dataset.id),notify:"Success!"
