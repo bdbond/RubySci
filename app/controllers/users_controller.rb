@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  http_basic_authenticate_with name:'admin',password:'tooloo'
+
   def new
     @user = User.new
   end

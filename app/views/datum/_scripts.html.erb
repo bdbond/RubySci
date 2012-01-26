@@ -1,6 +1,8 @@
 <script type="text/javascript">
 $(document).ready(function(){
 
+  
+
   // Event Binding to the inputs
   $("input").live("blur", function() {
     if (this.previous_value == $(this).val())
@@ -10,9 +12,11 @@ $(document).ready(function(){
     upload_input_line(this);
     process_page();
     this.previous_value = $(this).val();
+    suggest_pressure();
   });
 
   append_input_line();
+  suggest_pressure();
 
   function upload_input_line(node){
     $(node).css("background-color","#FF0");
@@ -39,7 +43,11 @@ $(document).ready(function(){
     $("div.input_line_container").append(render_new_line());
   }
 
-  
+  function suggest_pressure(){
+    var num_points = $("div.input_line").length-1;
+    var suggested_pressure = num_points*(1300.0-100.0)/25.0+100.0;
+    $("div.pressure_suggestion").first().html("Suggested pressure: "+String(suggested_pressure));
+  }
 
   function render_new_line(){
     string = '<div class="input_line" >';

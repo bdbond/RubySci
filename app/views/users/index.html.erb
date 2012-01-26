@@ -1,4 +1,4 @@
-
+<p>Select a user below to modify:</p>
 
 <% @users.each do |u| %>
 <%= link_to u.name+" <"+u.email+">",edit_user_path(u.id) %><br />

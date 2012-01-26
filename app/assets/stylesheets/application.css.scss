@@ -12,19 +12,27 @@
  *= require_tree .
 */
 
+$header_color: #ddd;
+
 .round {
   -moz-border-radius:10px;
   -webkit-border-radius:10px;
 }
 
 .header {
-  background-color:#fed;
+  background-color:$header_color;
   padding:8px;
   margin:8px;
 }
 
 .footer {
-  background-color:#fed;
+  background-color:$header_color;
   padding:8px;
   margin:8px;
+}
+
+.group_links {
+  margin:4px;
+  padding:8px;
+  background-color:#eee;
 }

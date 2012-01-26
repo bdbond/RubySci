@@ -9,7 +9,7 @@ class DatasetsController < ApplicationController
 
   def create
     if @dataset = Dataset.create(params[:dataset])
-      redirect_to "#",notify:"Success!"
+      redirect_to edit_datum_path(@dataset.id),notify:"Success!"
     else
       flash.now[:error] = "Failed"
       render action: 'new'
