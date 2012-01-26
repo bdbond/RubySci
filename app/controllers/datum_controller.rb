@@ -37,6 +37,8 @@ class DatumController < ApplicationController
       datum.voltage = value
     when "amps"
       datum.amperage = value
+    when "dark"
+      datum.darkspace = value
     end
     datum.save
   end

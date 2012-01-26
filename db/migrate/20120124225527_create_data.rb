@@ -5,6 +5,7 @@ class CreateData < ActiveRecord::Migration
       t.float :pressure
       t.float :voltage
       t.float :amperage
+      t.float :darkspace
 
       t.timestamps
     end

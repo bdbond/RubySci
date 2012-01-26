@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20120124225805) do
     t.float    "pressure"
     t.float    "voltage"
     t.float    "amperage"
+    t.float    "darkspace"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

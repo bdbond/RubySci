@@ -37,14 +37,16 @@ $(document).ready(function(){
 
   function append_input_line(){
     $("div.input_line_container").append(render_new_line());
-
   }
+
+  
 
   function render_new_line(){
     string = '<div class="input_line" >';
-    string += '<input class="pres" name="#" placeholder="Pressure" type="text" />'
-    string += '<input class="volt" name="#" placeholder="Voltage" type="text" />'
-    string += '<input class="amps" name="#" placeholder="Amperage" type="text" />'
+    string += '<input class="pres" size="10" name="#" placeholder="Pressure" type="text" />'
+    string += '<input class="volt" size="10" name="#" placeholder="Voltage" type="text" />'
+    string += '<input class="amps" size="10" name="#" placeholder="Amperage" type="text" />'
+    string += '<input class="dark" size="10" name="#" placeholder="Darkspace" type="text" />'
     string += '</div>'
     return string;
   }
