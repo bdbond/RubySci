@@ -5,7 +5,7 @@
 <p>Note: If the measured amperage exceeds 25 mA at any time, record necessary values as quickly as possible and then drop the voltage immediately. Prolonged exposure to large currents can damage the electrodes.</p>
 
 <div id="<%= params[:id] %>" class="input_line_container">
-<% @data.each do |d| %>
+<% @data.sort_by {|d| d.pressure }.each do |d| %>
 <div class="input_line" id="<%= d.id %>">
 <input class="pres" name="#" placeholder="Pressure" type="text" value="<%= d.pressure %>" size="10" style="background-color:#DDD"/>
 <input class="volt" name="#" placeholder="Voltage" type="text" value="<%= d.voltage %>" size="10" style="background-color:#DDD"/>
