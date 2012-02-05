@@ -1,11 +1,11 @@
 <%= render 'scripts' %>
 
-<p>Record data for pressure values evenly spaced through the range 100 mTorr to 1300 mTorr. The next suggested pressur will appear below each new datum entry. Take approximately 25 points of data.</p>
+<p>Record data for pressure values evenly spaced through the range 100 mTorr to 1300 mTorr (about 25 points). The next suggested pressur will appear below each new datum entry. Take approximately 25 points of data.</p>
 
 <p>Note: If the measured amperage exceeds 25 mA at any time, record necessary values as quickly as possible and then drop the voltage immediately. Prolonged exposure to large currents can damage the electrodes.</p>
 
 <div id="<%= params[:id] %>" class="input_line_container">
-<% @data.sort_by! {|d| d.pressure }.each_index do |i| %>
+<% @data.sort_by! {|d| d.pressure || 1000000}.each_index do |i| %>
 <div class="input_line" id="<%= @data[i].id %>"><%= (i+1).to_s+"." %>
 <input class="pres" name="#" placeholder="Pressure" type="text" value="<%= @data[i].pressure %>" size="10" style="background-color:#DDD"/>
 <input class="volt" name="#" placeholder="Voltage" type="text" value="<%= @data[i].voltage %>" size="10" style="background-color:#DDD"/>
@@ -15,3 +15,6 @@
 <% end %>
 </div>
 <div class="pressure_suggestion"></div>
+<%= form_tag approval_submit_path,method:"put",style:"float:right;" do %>
+<%= submit_tag "Submit for approval" %>
+<% end %>

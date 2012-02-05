@@ -29,11 +29,10 @@ ActiveRecord::Schema.define(:version => 20120205163751) do
     t.string   "geo_p"
     t.string   "mat_n"
     t.string   "geo_n"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "user_id"
-    t.boolean  "marked_of_interest"
-    t.boolean  "marked_complete"
+    t.integer  "status"
   end
 
   create_table "news_items", :force => true do |t|

@@ -3,7 +3,7 @@ module ApplicationHelper
 
 
   def current_ver
-    "v0.11 - 'slap happy dinosaur'"
+    "v0.12 - 'slap happy dinosaur'"
   end
 
   def get_user_role

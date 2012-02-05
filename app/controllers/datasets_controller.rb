@@ -7,17 +7,18 @@ class DatasetsController < ApplicationController
 
   # GET /datasets
   def index
-    @datasets = Dataset.all
-  end
-
-  # GET /datasets***
-  def index_of_interest
-    @datasets = Dataset.where("marked_of_interest = ?",true)
+    if status_code = params[:status]
+      @datasets = Dataset.where("status=?",status_code)
+    else
+      @datasets = Dataset.all
+    end
   end
 
   # POST /datasets
   def create
-    if @dataset = Dataset.create(params[:dataset])
+    @dataset = Dataset.new(params[:dataset])
+    @dataset.status = 0 # 0: incomplete
+    if @dataset.save
       redirect_to edit_datum_path(@dataset.id),notify:"Success!"
     else
       flash.now[:error] = "Failed"
@@ -30,6 +31,15 @@ class DatasetsController < ApplicationController
     if @dataset = Dataset.find(params[:id])
       @dataset.destroy
     end
+    redirect_to datasets_path
+  end
+
+  # PUT /datasets/1/submit_for_approval
+  def submit_for_approval
+    @dataset = Dataset.find(params[:id])
+    @dataset.status = 2
+    @dataset.save
+
     redirect_to datasets_path
   end
 

@@ -1,18 +1,17 @@
 RubySci::Application.routes.draw do
+  # Login routes
   post "sessions/create"
-
   get "sessions/destroy", as:'logout'
-
   get "sessions/new", as: 'login'
 
-  get "users/new"
-
-  post "datasets/datum/update" => "datum#update", :as => 'datum_update'
+  # Datum creation routes
+  post "datasets/datum/update" => "datum#update", as: 'datum_update'
   post "datasets/datum/req" => "datum#get_unique_id"
+  put "datasets/:id/submit_for_approval" => "datasets#submit_for_approval", as: 'approval_submit'
+  # 
 
-
+  # Other
   root :to => "news_items#index"
-  get "news_items/new"
   resources :news_items, :datasets, :datum, :users
 
   # The priority is based upon order of creation:

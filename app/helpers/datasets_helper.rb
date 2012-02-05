@@ -3,8 +3,8 @@ module DatasetsHelper
   # d is a Dataset 
   def style d
     str = 'style="'
-    str << 'text-decoration:line-through;' if d.marked_complete
-    str << 'font-style:italic;' if d.marked_of_interest
+    str << 'text-decoration:line-through;' if d.status == 3
+    str << 'font-style:italic;' if d.status == 2
     str << '"'
     str.html_safe
   end

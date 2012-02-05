@@ -7,8 +7,8 @@ $(document).ready(function(){
   $("input").live("blur", function() {
     if (this.previous_value == $(this).val())
       return;
-    if ($(this).val() == "")
-      return;
+    //if ($(this).val() == "")
+      //return;
     upload_input_line(this);
     process_page();
     this.previous_value = $(this).val();
