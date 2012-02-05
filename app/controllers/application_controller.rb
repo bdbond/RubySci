@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  force_ssl
 
   before_filter :require_login
 
@@ -8,6 +9,8 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+
+  private
 
   def current_user
     begin
