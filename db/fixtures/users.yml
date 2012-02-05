@@ -1,0 +1,5 @@
+casper:
+  name: Casper Holmgreen
+  email: cholmgreen@gmail.com
+  password_digest: <%= BCrypt::Password.create("asdfjkl;1")%>
+  role_id: 1

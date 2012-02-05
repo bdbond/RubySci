@@ -1,2 +1,3 @@
 
-<a href="<%= edit_datum_path(dataset.id) %>" <%= style dataset %> ><%= dataset.name %></a><br />
+<a href="<%= edit_datum_path(dataset.id) %>" <%= style dataset %> ><%= dataset.name %></a> 
+<%= link_to "[x]", dataset, confirm:"Are you sure?", method: :delete%><br />

@@ -15,12 +15,9 @@ class ApplicationController < ActionController::Base
     rescue ActiveRecord::RecordNotFound
       session[:user_id] = nil
     end
-
   end
   helper_method :current_user
 
-  def current_ver
-    "v0.1"
-  end
-  helper_method :current_ver
+
+  #helper_method :current_ver
 end

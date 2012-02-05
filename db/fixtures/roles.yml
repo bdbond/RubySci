@@ -1,0 +1,7 @@
+admin:
+  id: 1
+  role_name: admin
+
+user:
+  id: 11
+  role_name: user

@@ -51,10 +51,12 @@ $(document).ready(function(){
 
   function render_new_line(){
     string = '<div class="input_line" >';
-    string += '<input class="pres" size="10" name="#" placeholder="Pressure" type="text" />'
-    string += '<input class="volt" size="10" name="#" placeholder="Voltage" type="text" />'
-    string += '<input class="amps" size="10" name="#" placeholder="Amperage" type="text" />'
-    string += '<input class="dark" size="10" name="#" placeholder="Darkspace" type="text" />'
+    string += $("div.input_line").length+1
+    string += "."
+    string += '<input class="pres" size="10" placeholder="Pressure" type="text" />';
+    string += '<input class="volt" size="10" placeholder="Voltage" type="text" />';
+    string += '<input class="amps" size="10" placeholder="Amperage" type="text" />';
+    string += '<input class="dark" size="10" placeholder="Darkspace" type="text" />';
     string += '</div>'
     return string;
   }

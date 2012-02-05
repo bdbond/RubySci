@@ -13,11 +13,13 @@
     <%= link_to "Add new", new_dataset_path %><br />
     <%= link_to "Modify existing", datasets_path %>
   </div>
-  <div class="group_links">
-    <b>Administrator</b><br />
-    <%= link_to "Manage users", users_path %><br />
-    <%= link_to "Add news item",new_news_item_path %>
-  </div>
+  <% if admin? %>
+    <div class="group_links">
+      <b>Administrator</b><br />
+      <%= link_to "Manage users", users_path %><br />
+      <%= link_to "Add news item",new_news_item_path %>
+    </div>
+  <% end %>
 <% else %>
 Please log in.
 <% end %>
