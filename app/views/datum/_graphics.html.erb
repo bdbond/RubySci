@@ -1,0 +1,46 @@
+<script type="text/javascript">
+
+function update_graphs(){
+  redraw_graph('pres','volt');
+}
+
+function redraw_graph(c1,c2){
+  var c = $("canvas#"+c1+"_"+c2)[0];
+  var ctx = c.getContext("2d");
+  var cx = $(c).attr('width');
+  var cy = $(c).attr('height');
+  var size_x = get_maximum_value(c1);
+  var size_y = get_maximum_value(c2);
+  ctx.beginPath();
+  ctx.clearRect(0,0,cx,cy);
+  
+
+  d = $("div.input_line").first();
+  var p = $(d).find('.'+c1).val();
+  var v = $(d).find('.'+c2).val();
+  ctx.moveTo(p/size_x*cx, cy-v/size_y*cy);
+
+  $("div.input_line").each( function(i,d){
+    var p = $(d).find('.'+c1).val();
+    var v = $(d).find('.'+c2).val();
+    
+    if (p != "" && v != ""){
+      ctx.lineTo(p/size_x*cx, cy-v/size_y*cy);
+    }
+  });
+  ctx.stroke();
+}
+
+function get_maximum_value(c){
+  var max = 0;
+  var temp;
+  $("div.input_line").each( function(i,d){
+    temp = parseFloat($(d).find('.'+c).val());
+    if (temp > max){
+      max = temp;
+    }
+  });
+  return max*1.1;
+}
+
+</script>

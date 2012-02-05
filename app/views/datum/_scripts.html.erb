@@ -13,6 +13,7 @@ $(document).ready(function(){
     process_page();
     this.previous_value = $(this).val();
     suggest_pressure();
+    update_graphs();
   });
 
   append_input_line();
@@ -53,10 +54,10 @@ $(document).ready(function(){
     string = '<div class="input_line" >';
     string += $("div.input_line").length+1
     string += "."
-    string += '<input class="pres" size="10" placeholder="Pressure" type="text" />';
-    string += '<input class="volt" size="10" placeholder="Voltage" type="text" />';
-    string += '<input class="amps" size="10" placeholder="Amperage" type="text" />';
-    string += '<input class="dark" size="10" placeholder="Darkspace" type="text" />';
+    string += '<input class="pres" size="8" placeholder="Pressure" type="text" />';
+    string += '<input class="volt" size="8" placeholder="Voltage" type="text" />';
+    string += '<input class="amps" size="8" placeholder="Amperage" type="text" />';
+    string += '<input class="dark" size="8" placeholder="Darkspace" type="text" />';
     string += '</div>'
     return string;
   }
