@@ -16,8 +16,10 @@ $(document).ready(function(){
     update_graphs();
   });
 
+  // Do these things upon loading the page:
   append_input_line();
   suggest_pressure();
+  update_graphs();
 
   function upload_input_line(node){
     $(node).css("background-color","#FF0");

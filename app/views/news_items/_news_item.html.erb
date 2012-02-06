@@ -1,4 +1,4 @@
 <div class="news_item">
   <%= news_item.text %><br />
-  Posted by <%= news_item.user.name %> <%= time_ago_in_words(news_item.created_at) %> ago
+  <p class="posted_by"> - Posted by <%= news_item.user.name %> <%= time_ago_in_words(news_item.created_at) %> ago</p>
 </div>
