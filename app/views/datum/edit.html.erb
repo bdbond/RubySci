@@ -1,9 +1,10 @@
 <%= render 'scripts' %>
 <%= render 'graphics' %>
 
-<p>Record data for pressure values evenly spaced through the range 100 mTorr to 1300 mTorr (about 25 points). The next suggested pressur will appear below each new datum entry. Take approximately 25 points of data.</p>
 
-<p>Note: If the measured amperage exceeds 25 mA at any time, record necessary values as quickly as possible and then drop the voltage immediately. Prolonged exposure to large currents can damage the electrodes.</p>
+<div><h2 style="margin-bottom:0px;"><%= @dataset.name %></h2>
+</div>
+<%= render 'instructions' %>
 <div style="float:right;text-align:center;">
 Pressure - Voltage<br/>
 <canvas id="pres_volt" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas><br /><br />
@@ -11,7 +12,7 @@ Pressure - Amperage<br/>
 <canvas id="pres_amps" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas><br /><br />
 </div>
 
-<div id="<%= params[:id] %>" class="input_line_container">
+<div id="<%= @dataset.id %>" class="input_line_container">
 <% @data.sort_by! {|d| d.pressure || 1000000}.each_index do |i| %>
 <div class="input_line" id="<%= @data[i].id %>"><%= (i+1).to_s+"." %>
 <input class="pres" name="#" placeholder="Pressure" type="text" value="<%= @data[i].pressure %>" size="8" style="background-color:#DDD"/>
@@ -23,6 +24,11 @@ Pressure - Amperage<br/>
 </div>
 
 <div class="pressure_suggestion"></div>
-<%= form_tag approval_submit_path,method:"put",style:"float:right;" do %>
+<div style="margin-top:32px;">
+<%= form_tag approval_submit_path,method:"put" do %>
+Comments<br/>
+<%= text_area_tag :comment,@dataset.comment,placeholder:'Please include any relevent comments here',style:"height:80px;width:400px;padding:0;margin:0;" %> <br />
 <%= submit_tag "Submit for approval" %>
 <% end %>
+Admin: <%= link_to action: :approve, controller: :dataset %>
+</div>

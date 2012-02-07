@@ -11,50 +11,52 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120205163751) do
+ActiveRecord::Schema.define(:version => 20120207172309) do
 
   create_table "data", :force => true do |t|
-    t.integer  "dataset_id"
-    t.float    "pressure"
-    t.float    "voltage"
-    t.float    "amperage"
-    t.float    "darkspace"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer   "dataset_id"
+    t.float     "pressure"
+    t.float     "voltage"
+    t.float     "amperage"
+    t.float     "darkspace"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "datasets", :force => true do |t|
-    t.string   "name"
-    t.string   "mat_p"
-    t.string   "geo_p"
-    t.string   "mat_n"
-    t.string   "geo_n"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "user_id"
-    t.integer  "status"
+    t.string    "name"
+    t.string    "mat_p"
+    t.string    "geo_p"
+    t.string    "mat_n"
+    t.string    "geo_n"
+    t.timestamp "created_at",                  :null => false
+    t.timestamp "updated_at",                  :null => false
+    t.integer   "user_id"
+    t.integer   "status"
+    t.float     "dist",       :default => 0.0
+    t.string    "comment"
   end
 
   create_table "news_items", :force => true do |t|
-    t.string   "text"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string    "text"
+    t.integer   "user_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "roles", :force => true do |t|
-    t.string   "role_name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string    "role_name"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "role_id",         :default => 1
+    t.string    "name"
+    t.string    "email"
+    t.string    "password_digest"
+    t.timestamp "created_at",                     :null => false
+    t.timestamp "updated_at",                     :null => false
+    t.integer   "role_id",         :default => 1
   end
 
 end

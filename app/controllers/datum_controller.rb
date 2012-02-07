@@ -1,6 +1,7 @@
 class DatumController < ApplicationController
   
   def edit
+    @dataset = Dataset.find(params[:id])
     @data = Dataset.find(params[:id]).data.all
   end
 

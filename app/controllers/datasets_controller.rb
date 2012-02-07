@@ -18,6 +18,7 @@ class DatasetsController < ApplicationController
   def create
     @dataset = Dataset.new(params[:dataset])
     @dataset.status = 0 # 0: incomplete
+    @dataset.user_id = session[:user_id]
     if @dataset.save
       redirect_to edit_datum_path(@dataset.id),notify:"Success!"
     else
@@ -37,7 +38,17 @@ class DatasetsController < ApplicationController
   # PUT /datasets/1/submit_for_approval
   def submit_for_approval
     @dataset = Dataset.find(params[:id])
+    @dataset.comment = params[:comment]
     @dataset.status = 2
+    @dataset.save
+
+    redirect_to datasets_path
+  end
+
+  # PUT /datasets/1/approve
+  def approve
+    @dataset = Dataset.find(params[:id])
+    @dataset.status = 3
     @dataset.save
 
     redirect_to datasets_path

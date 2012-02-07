@@ -18,18 +18,24 @@ $(document).ready(function(){
 });
 </script>
 
-Please select the materials and geometries of the lab setup.
+<div class="instructions" style="margin-bottom:20px">Please select the materials and geometries of the lab setup. </div>
 <div id="1" class="input_line_container">
 <%= form_for @dataset do |f| %>
   <div class="lab_setup">
+  <%= f.label 'Lab Setup:'%>
   <%= f.select :mat_p, options_materials.html_safe %>
   <%= f.select :geo_p, options_geometries.html_safe %>
   PN
   <%= f.select :mat_n, options_materials.html_safe %>
   <%= f.select :geo_n, options_geometries.html_safe %>
   </div>
+  <div>
+  <%= f.label 'Electrode Distance:'%> <%= f.text_field :dist, size:'8' %>cm
+  </div>
+  <div style="margin-top:20px">
   <%= f.label :name %>
   <%= f.text_field :name, size:'50'%>
   <%= f.submit %>
+  </div>
 <% end %>
 </div>
