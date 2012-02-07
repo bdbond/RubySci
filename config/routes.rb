@@ -3,6 +3,7 @@ RubySci::Application.routes.draw do
   post "sessions/create"
   get "sessions/destroy", as:'logout'
   get "sessions/new", as: 'login'
+  get "change_password" => "users#change_password", as: "change_password"
 
   # Datum creation routes
   post "datasets/datum/update" => "datum#update", as: 'datum_update'
@@ -11,6 +12,8 @@ RubySci::Application.routes.draw do
   put "datasets/:id/approve" => "datasets#approve", as: 'approve'
   # override the datum route
   get "datasets/:id/edit" => "datum#edit", as: 'edit_datum'
+  # Change password
+  put "change_password" => "users#change_password", as: "change_password"
 
 
   # Other

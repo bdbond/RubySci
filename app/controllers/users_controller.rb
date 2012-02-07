@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  http_basic_authenticate_with name:'p',password:'oop'
-
   def new
     @user = User.new
   end
@@ -22,5 +20,23 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+  end
+
+  # PUT 
+  def change_password
+    @user = User.find(session[:user_id])
+    if @user.authenticate(params[:old_password])
+      @user.password = params[:password]
+      @user.password_confirmation = params[:password_confirmation]
+      if @user.save
+        redirect_to root_path
+      else
+        flash.now['alert'] = "Password can't validate: Confirmation didn't match?"
+        render action:"change_password"
+      end
+    else
+      flash.now['alert'] = "Wrong password"
+      render action:"change_password"
+    end
   end
 end
