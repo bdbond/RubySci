@@ -1,6 +1,10 @@
+<div class="instructions">
+Note: The public-facing pages of this website are still under construction. Until they are available, please contact Chelsea Ratzlaff for information regarding our research. 
+</div>
 
-
+<div class="instructions">
 <%= form_tag controller:'sessions',action:'create' do %>
+<%= label_tag "Login" %>
 <div class="field">
   <%= label_tag :email %>
   <%= text_field_tag :email %>
@@ -13,3 +17,4 @@
   <%= submit_tag "Log in" %>
 </div>
 <% end %>
+</div>

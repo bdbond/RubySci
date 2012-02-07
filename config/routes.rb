@@ -8,6 +8,7 @@ RubySci::Application.routes.draw do
   post "datasets/datum/update" => "datum#update", as: 'datum_update'
   post "datasets/datum/req" => "datum#get_unique_id"
   put "datasets/:id/submit_for_approval" => "datasets#submit_for_approval", as: 'approval_submit'
+  put "datasets/:id/approve" => "datasets#approve", as: 'approve'
   # override the datum route
   get "datasets/:id/edit" => "datum#edit", as: 'edit_datum'
 

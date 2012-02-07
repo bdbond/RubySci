@@ -1,1 +1,12 @@
-<%= render partial:'dataset',collection:@datasets %>
+<div class="instructions">
+<b>Incomplete datasets:</b><br/>
+<%= render partial:'dataset',collection:@datasets.find_all {|d| d.status == 0} %>
+</div>
+<div class="instructions">
+<b>Submitted for approval:</b><br/>
+<%= render partial:'dataset',collection:@datasets.find_all {|d| d.status == 2} %>
+</div>
+<div class="instructions">
+<b>Completed datasets:</b><br />
+<%= render partial:'dataset',collection:@datasets.find_all {|d| d.status == 3} %>
+</div>
