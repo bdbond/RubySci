@@ -1,0 +1,4 @@
+<b>Datasets remaining: <%= @todo.length %></b><br><br>
+<% @todo.sample(@todo.length).each do |d| %>
+<%= d %><br/>
+<% end %>

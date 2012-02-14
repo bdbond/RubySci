@@ -3,7 +3,7 @@ module ApplicationHelper
 
 
   def current_ver
-    "v0.15 - 'graffasaurus maximus'"
+    "v0.16 - 'graffasaurus maximus' rev2"
   end
 
   def get_user_role

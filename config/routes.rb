@@ -5,6 +5,8 @@ RubySci::Application.routes.draw do
   get "sessions/new", as: 'login'
   get "change_password" => "users#change_password", as: "change_password"
 
+  get "datasets/todo" => "datasets#todo", as:"todo"
+
   # Datum creation routes
   post "datasets/datum/update" => "datum#update", as: 'datum_update'
   post "datasets/datum/req" => "datum#get_unique_id"

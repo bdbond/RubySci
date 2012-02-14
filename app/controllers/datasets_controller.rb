@@ -14,6 +14,13 @@ class DatasetsController < ApplicationController
     end
   end
 
+  # GET /datasets/todo
+  def todo
+    all = get_permutations
+    cur = get_current_datasets_names
+    @todo = all-cur
+  end
+
   # POST /datasets
   def create
     @dataset = Dataset.new(params[:dataset])
@@ -52,6 +59,45 @@ class DatasetsController < ApplicationController
     @dataset.save
 
     redirect_to datasets_path
+  end
+
+  private
+
+  def get_permutations
+    geometries = []
+    materials = []
+
+    geometries << 'Cone'
+    geometries << 'Disc'
+    geometries << 'Sphere'
+    geometries << 'Point'
+
+    materials << 'Aluminum'
+    materials << 'Copper'
+    materials << 'Graphite'
+    materials << 'Stainless Steel'
+
+    setups = []
+
+    materials.each do |m1|
+      geometries.each do |g1|
+        materials.each do |m2|
+          geometries.each do |g2|
+            setups << m1+' '+g1+' PN '+m2+' '+g2
+          end
+        end
+      end
+    end
+
+    return setups
+  end
+
+  def get_current_datasets_names
+    datasets = []
+    Dataset.all.each do |d|
+      datasets << d.name
+    end
+    return datasets
   end
 
 
