@@ -1,4 +1,6 @@
 RubySci::Application.routes.draw do
+  root :to => "frontend#home"
+
   # Login routes
   post "sessions/create"
   get "sessions/destroy", as:'logout'
@@ -21,6 +23,13 @@ RubySci::Application.routes.draw do
   # Other
   root :to => "news_items#index"
   resources :news_items, :datasets, :datum, :users
+
+  # Page Links
+  get "frontend/home" 
+  get "frontend/team"
+  get "frontend/gallery"
+  get "frontend/pub"
+  get "frontend/data"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

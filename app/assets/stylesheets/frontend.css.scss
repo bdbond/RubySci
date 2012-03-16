@@ -1,0 +1,55 @@
+// Place all the styles related to the frontend controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.feheader{
+	width: 100%;
+}
+
+.feheader img{
+	width: 100%;
+}
+
+.sidebar{
+	border-style:solid;
+	border-width:1px;
+	border-color: #eee;
+	text-align: center;
+}
+
+.body {
+	font-family : Verdana, Arial, Helvetica, sans-serif; 
+	color: #353424;
+	padding: 0px;
+	margin: 0px;
+	text-align: left;
+}
+
+.buttons a {
+	font-family : Verdana, Arial, Helvetica, sans-serif; 
+	text-decoration: none;
+	color: #353424;
+	padding: 2px;
+
+}
+
+.buttons a:hover {
+	color: #F750FF;				/* This is the plasma color */
+	text-decoration: none;
+	padding: 2px;
+}
+
+.innerfooter img{
+		width: 150px;
+		text-align: right;
+}
+
+.not_used{
+	padding: 2px;
+	display: block;
+	font-size:13px;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: left;
+	background-color:#ffffff;
+	font-size : 11px; 
+}
